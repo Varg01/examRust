@@ -4,7 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-
+using namespace std;
 
 void mergeSort(int *arr, int l, int r);
 

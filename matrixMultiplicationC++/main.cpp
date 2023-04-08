@@ -34,19 +34,24 @@ int main(int argc, char **argv) {
     }
 
 
-    readArr(fileName1, firstArray);
-    readArr(fileName2, secondArray);
+    
 
-    auto start = std::chrono::high_resolution_clock::now();
+    int iterations = 10;
+    long long totalDuration = 0;
+    for (int i = 0; i < iterations; i++) {
+        readArr(fileName1, firstArray);
+        readArr(fileName2, secondArray);
 
-    matrixMultiplication(firstArray, secondArray, resultArray, size);
+        auto start = chrono::high_resolution_clock::now();
+        matrixMultiplication(firstArray, secondArray, resultArray, size);
+        auto end = chrono::high_resolution_clock::now();
+        auto duration = chrono::duration_cast<std::chrono::microseconds>(end - start).count();
+        totalDuration += duration;
 
-    auto end = std::chrono::high_resolution_clock::now();
+    }
 
-    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
-
-    std::cout << "Execution time: " << duration << " microseconds" << std::endl;
-    std::cout << "Execution time: " << duration/1000000 << " seconds" << std::endl;
+    std::cout << "Average Execution time: " << totalDuration / iterations << " microseconds" << std::endl;
+    std::cout << "Average Execution time: " << totalDuration / (iterations * 1000000) << " seconds" << std::endl;
 
 
     writeResult(resultArray, size);
