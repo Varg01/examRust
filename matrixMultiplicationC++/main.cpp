@@ -33,25 +33,24 @@ int main(int argc, char **argv) {
         resultArray[i] = new long[size];
     }
 
-
-    
-
     int iterations = 10;
     long long totalDuration = 0;
+
+    readArr(fileName1, firstArray);
+    readArr(fileName2, secondArray);
+    std::ofstream outputFile("output.txt");
     for (int i = 0; i < iterations; i++) {
-        readArr(fileName1, firstArray);
-        readArr(fileName2, secondArray);
 
         auto start = chrono::high_resolution_clock::now();
         matrixMultiplication(firstArray, secondArray, resultArray, size);
         auto end = chrono::high_resolution_clock::now();
         auto duration = chrono::duration_cast<std::chrono::microseconds>(end - start).count();
         totalDuration += duration;
-
+        outputFile << "Duration for Iteration " << i + 1 << ": " << duration << " microseconds" << std::endl;
+        outputFile << "Duration for Iteration " << i + 1 << ": " << duration/1000000 << " seconds" << std::endl;
     }
-
-    std::cout << "Average Execution time: " << totalDuration / iterations << " microseconds" << std::endl;
-    std::cout << "Average Execution time: " << totalDuration / (iterations * 1000000) << " seconds" << std::endl;
+    outputFile << "Average Execution time: " << totalDuration / iterations << " microseconds" << std::endl;
+    outputFile << "Average Execution time: " << totalDuration / (iterations * 1000000) << " seconds" << std::endl;
 
 
     writeResult(resultArray, size);

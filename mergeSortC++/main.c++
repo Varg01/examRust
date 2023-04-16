@@ -37,6 +37,7 @@ int main(int argc, char **argv) {
 
     int iterations = 10;
     long long totalDuration = 0;
+    std::ofstream outputFile("output.txt");
     for (int i = 0; i < iterations; i++) {
         count = 0;
         file.open(fileName);
@@ -63,11 +64,13 @@ int main(int argc, char **argv) {
         auto end = chrono::high_resolution_clock::now();
         auto duration = chrono::duration_cast<std::chrono::microseconds>(end - start).count();
         totalDuration += duration;
-
+        outputFile << "Duration for Iteration " << i + 1 << ": " << duration << " microseconds" << std::endl;
+        outputFile << "Duration for Iteration " << i + 1 << ": " << duration/1000000 << " seconds" << std::endl;
     }
+    outputFile << "Average Execution time: " << totalDuration / iterations << " microseconds" << std::endl;
+    outputFile << "Average Execution time: " << totalDuration / (iterations * 1000000) << " seconds" << std::endl;
 
-    std::cout << "Average Execution time: " << totalDuration / iterations << " microseconds" << std::endl;
-    std::cout << "Average Execution time: " << totalDuration / (iterations * 1000000) << " seconds" << std::endl;
+
 
 
     // cout << "Sorted array : ";

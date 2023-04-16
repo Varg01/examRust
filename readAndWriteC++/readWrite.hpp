@@ -12,7 +12,6 @@ using namespace std;
 
 
 void readArr(string fileName, string &fileData);
-
-void writeResult(string &fileData, int size);
+void writeResult(const string& fileData);
 
 #endif // matrixMultiplication

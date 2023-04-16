@@ -1,0 +1,1 @@
+/home/vargbroder/kurser/examArbete/examRust/read_write_rust/target/debug/matrix_multiplication: /home/vargbroder/kurser/examArbete/examRust/read_write_rust/src/main.rs /home/vargbroder/kurser/examArbete/examRust/read_write_rust/src/read_write_file.rs

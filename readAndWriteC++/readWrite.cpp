@@ -1,4 +1,4 @@
-#include "matrixMultiplication.hpp"
+#include "readWrite.hpp"
 
 
 
@@ -14,9 +14,9 @@ void readArr(string fileName, string& fileData)
     }
 }
 
-void writeResult(string fileName, const string& fileData)
+void writeResult(const string& fileData)
 {
-    std::ofstream outFile(fileName);
+    std::ofstream outFile("result.txt");
 
     if (outFile.is_open()) {
         outFile << fileData;

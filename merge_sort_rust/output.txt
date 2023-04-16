@@ -1,0 +1,12 @@
+Duration for Iteration 1: 376595.000000 microseconds
+Duration for Iteration 2: 284971.000000 microseconds
+Duration for Iteration 3: 381070.000000 microseconds
+Duration for Iteration 4: 318794.000000 microseconds
+Duration for Iteration 5: 374628.000000 microseconds
+Duration for Iteration 6: 485151.000000 microseconds
+Duration for Iteration 7: 391003.000000 microseconds
+Duration for Iteration 8: 362383.000000 microseconds
+Duration for Iteration 9: 545732.000000 microseconds
+Duration for Iteration 10: 353238.000000 microseconds
+Average Execution time: 387357.000000 microseconds
+Average Execution time: 0.387357 seconds

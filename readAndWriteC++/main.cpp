@@ -6,10 +6,6 @@
  * Utility function used to print the array after
  * sorting
  */
-void show(int *arr, int size) {
-    for (int i = 0; i < size; i++) std::cout << arr[i] << " ";
-    std::cout << "\n";
-}
 
 /** Main function */
 int main(int argc, char **argv) {
@@ -19,47 +15,36 @@ int main(int argc, char **argv) {
 
     string fileData = ""; 
 
-    // int** firstArray = new int*[size];
-    // for (int i = 0; i < size; i++) {
-    //     firstArray[i] = new int[size];
-    // }
-
     int iterations = 10;
     long long totaldurationRead = 0;
     long long totalDurationWrite = 0;
+    std::ofstream outputFile("output.txt");
     for (int i = 0; i < iterations; i++) {
         auto startRead = chrono::high_resolution_clock::now();
         readArr(fileName, fileData);
         auto endRead = chrono::high_resolution_clock::now();
 
         auto durationRead = chrono::duration_cast<std::chrono::microseconds>(endRead - startRead).count();
-        cout << "Execution time: " << durationRead << " microseconds" << endl;
-        cout << "Execution time: " << durationRead/1000000 << " seconds" << endl;
+        outputFile << "Duration for Iteration read" << i + 1 << ": " << durationRead << "  microseconds" << std::endl;
+        outputFile << "Duration for Iteration read" << i + 1 << ": " << durationRead/1000000 << " seconds" << std::endl;
 
         totaldurationRead += durationRead;
 
         auto startWrite = std::chrono::high_resolution_clock::now();
-        writeResult(fileData, size);
+        writeResult(fileData);
         auto endWrite = chrono::high_resolution_clock::now();
         auto durationWrite = chrono::duration_cast<chrono::microseconds>(endWrite - startWrite).count();
-        cout << "Execution time: " << durationWrite << " microseconds" << endl;
-        cout << "Execution time: " << durationWrite/1000000 << " seconds" << endl;
+        outputFile << "Duration for Iteration write" << i + 1 << ": " << durationWrite << " microseconds" << std::endl;
+        outputFile << "Duration for Iteration write" << i + 1 << ": " << durationWrite/1000000 << " seconds" << std::endl;
         totalDurationWrite += durationWrite;
     }
 
-    std::cout << "Average Execution time: " << totaldurationRead / iterations << " microseconds" << std::endl;
-    std::cout << "Average Execution time seconds: " << totaldurationRead / (iterations * 1000000) << " seconds" << std::endl;
+    outputFile << "Average Execution time read: " << totaldurationRead / iterations << " microseconds" << std::endl;
+    outputFile << "Average Execution time read: " << totaldurationRead / (iterations * 1000000) << " seconds" << std::endl;
 
-    std::cout << "Average Execution time: " << totalDurationWrite / iterations << " microseconds" << std::endl;
-    std::cout << "Average Execution time seconds: " << totalDurationWrite / (iterations * 1000000) << " seconds" << std::endl;
+    outputFile << "Average Execution time write: " << totalDurationWrite / iterations << " microseconds" << std::endl;
+    outputFile << "Average Execution time write: " << totalDurationWrite / (iterations * 1000000) << " seconds" << std::endl;
 
-    
-    
-
-    // for (int i = 0; i < size; i++) {
-    //     delete[] firstArray[i];
-    // }
-    // delete[] firstArray;
 
 
     return 0;
