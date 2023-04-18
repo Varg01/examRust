@@ -22,8 +22,10 @@ fn main() {
             .map(|s| s.trim().parse::<i32>().unwrap())
             .collect::<Vec<i32>>();
     }
+    
+    let result = String::from("timeResult_");
 
-    let mut output_file = File::create("output.txt").expect("Failed to create output file"); 
+    let mut output_file = File::create(result + &args[1]).expect("Failed to create output file"); 
     let iterations = 10;
     let mut total_duration = Duration::default();
     for i in 0..iterations {
@@ -34,6 +36,7 @@ fn main() {
         let duration = end - start;
         total_duration += duration;
         writeln!(output_file, "Duration for Iteration {}: {:.6} microseconds", i + 1, duration.as_micros() as f64).expect("Failed to create output file");
+        writeln!(output_file, "Duration for Iteration {}: {:.6} seconds", i + 1, total_duration.as_secs_f64() / iterations as f64).expect("Failed to create output file");
     }
 
     let average_micros = total_duration.as_micros() as f64 / iterations as f64;

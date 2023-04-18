@@ -18,7 +18,7 @@ int main(int argc, char **argv) {
     int iterations = 10;
     long long totaldurationRead = 0;
     long long totalDurationWrite = 0;
-    std::ofstream outputFile("output.txt");
+    std::ofstream outputFile("timeResult_" + fileName);
     for (int i = 0; i < iterations; i++) {
         auto startRead = chrono::high_resolution_clock::now();
         readArr(fileName, fileData);

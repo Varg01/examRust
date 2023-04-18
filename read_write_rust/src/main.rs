@@ -11,7 +11,9 @@ fn main() {
     let file_name = std::env::args().nth(1).unwrap_or_default();
 
 
-    let mut output_file = File::create("output.txt").expect("Failed to create output file"); 
+    let result = String::from("timeResult_");
+
+    let mut output_file = File::create(result + &file_name).expect("Failed to create output file"); 
     let iterations = 10;
     let mut total_duration_read = Duration::default();
     let mut total_duration_write = Duration::default();

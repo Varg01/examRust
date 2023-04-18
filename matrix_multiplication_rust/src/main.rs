@@ -18,7 +18,9 @@ fn main() {
     let mut second_array = Vec::with_capacity(size);
     let mut result_array = vec![vec![0; size]; size];
 
-    let mut output_file = File::create("output.txt").expect("Failed to create output file"); 
+    let result = String::from("timeResult_");
+
+    let mut output_file = File::create(result + &size.to_string()).expect("Failed to create output file"); 
     let iterations = 10;
     let mut total_duration = Duration::default();
     for i in 0..iterations {
@@ -31,6 +33,7 @@ fn main() {
         let duration = end.duration_since(start);
         total_duration += duration;
         writeln!(output_file, "Duration for Iteration {}: {:.6} microseconds", i + 1, duration.as_micros() as f64).expect("Failed to create output file");
+        writeln!(output_file, "Duration for Iteration {}: {:.6} seconds", i + 1, total_duration.as_secs_f64() / iterations as f64).expect("Failed to create output file");
     }
 
     let average_micros = total_duration.as_micros() as f64 / iterations as f64;

@@ -1,0 +1,44 @@
+Read duration for Iteration 1: 51498.000000 microseconds
+Read duration for Iteration 1: 0.051499 microseconds
+Write duration for Iteration 1: 264051.000000 microseconds
+Write duration for Iteration 1: 0.264052 microseconds
+Read duration for Iteration 2: 50688.000000 microseconds
+Read duration for Iteration 2: 0.050688 microseconds
+Write duration for Iteration 2: 278802.000000 microseconds
+Write duration for Iteration 2: 0.278802 microseconds
+Read duration for Iteration 3: 51744.000000 microseconds
+Read duration for Iteration 3: 0.051745 microseconds
+Write duration for Iteration 3: 315729.000000 microseconds
+Write duration for Iteration 3: 0.315730 microseconds
+Read duration for Iteration 4: 38666.000000 microseconds
+Read duration for Iteration 4: 0.038666 microseconds
+Write duration for Iteration 4: 299730.000000 microseconds
+Write duration for Iteration 4: 0.299730 microseconds
+Read duration for Iteration 5: 37737.000000 microseconds
+Read duration for Iteration 5: 0.037738 microseconds
+Write duration for Iteration 5: 234347.000000 microseconds
+Write duration for Iteration 5: 0.234348 microseconds
+Read duration for Iteration 6: 39260.000000 microseconds
+Read duration for Iteration 6: 0.039260 microseconds
+Write duration for Iteration 6: 271457.000000 microseconds
+Write duration for Iteration 6: 0.271458 microseconds
+Read duration for Iteration 7: 37253.000000 microseconds
+Read duration for Iteration 7: 0.037254 microseconds
+Write duration for Iteration 7: 220341.000000 microseconds
+Write duration for Iteration 7: 0.220341 microseconds
+Read duration for Iteration 8: 37482.000000 microseconds
+Read duration for Iteration 8: 0.037483 microseconds
+Write duration for Iteration 8: 235072.000000 microseconds
+Write duration for Iteration 8: 0.235073 microseconds
+Read duration for Iteration 9: 36562.000000 microseconds
+Read duration for Iteration 9: 0.036562 microseconds
+Write duration for Iteration 9: 203046.000000 microseconds
+Write duration for Iteration 9: 0.203046 microseconds
+Read duration for Iteration 10: 36511.000000 microseconds
+Read duration for Iteration 10: 0.036511 microseconds
+Write duration for Iteration 10: 211130.000000 microseconds
+Write duration for Iteration 10: 0.211131 microseconds
+Average Execution time read: 41740.600000 microseconds
+Average Execution time read: 0.041741 seconds
+Average Execution time write: 253371.000000 microseconds
+Average Execution time write: 0.253371 seconds

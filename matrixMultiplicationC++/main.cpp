@@ -38,7 +38,7 @@ int main(int argc, char **argv) {
 
     readArr(fileName1, firstArray);
     readArr(fileName2, secondArray);
-    std::ofstream outputFile("output.txt");
+    std::ofstream outputFile("timeResult_" + to_string(size));
     for (int i = 0; i < iterations; i++) {
 
         auto start = chrono::high_resolution_clock::now();

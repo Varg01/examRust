@@ -37,7 +37,7 @@ int main(int argc, char **argv) {
 
     int iterations = 10;
     long long totalDuration = 0;
-    std::ofstream outputFile("output.txt");
+    std::ofstream outputFile("timeResult_" + fileName);
     for (int i = 0; i < iterations; i++) {
         count = 0;
         file.open(fileName);
