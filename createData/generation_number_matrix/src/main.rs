@@ -24,7 +24,6 @@ fn main() -> Result<(), std::io::Error> {
     let mut rng = rand::thread_rng();
     let mut numbers: Vec<Vec<i32>> = Vec::new();
 
-    // 100 000 1 000 000 and 10 000 000
     let args: Vec<String> = env::args().collect();
     if args.len() > 1 {
         let number_size = args[1].parse::<usize>().unwrap();

@@ -13,15 +13,19 @@ fn main() {
         .unwrap_or(0);
     let file_name1 = std::env::args().nth(2).unwrap_or_default();
     let file_name2 = std::env::args().nth(3).unwrap_or_default();
+    let iterations = std::env::args()
+    .nth(4)
+    .and_then(|arg| arg.parse::<usize>().ok())
+    .unwrap_or(0);
 
     let mut first_array = Vec::with_capacity(size);
     let mut second_array = Vec::with_capacity(size);
     let mut result_array = vec![vec![0; size]; size];
 
-    let result = String::from("timeResult_");
-
-    let mut output_file = File::create(result + &size.to_string()).expect("Failed to create output file"); 
-    let iterations = 10;
+    let mut output_file_name = std::env::args().nth(5).unwrap_or_default();
+    output_file_name.push_str(&size.to_string());
+    let mut output_file = File::create(&output_file_name).expect("Failed to create output file");
+ 
     let mut total_duration = Duration::default();
     for i in 0..iterations {
         matrix_multiplication::read_arr(&file_name1, &mut first_array).unwrap();
@@ -33,7 +37,7 @@ fn main() {
         let duration = end.duration_since(start);
         total_duration += duration;
         writeln!(output_file, "Duration for Iteration {}: {:.6} microseconds", i + 1, duration.as_micros() as f64).expect("Failed to create output file");
-        writeln!(output_file, "Duration for Iteration {}: {:.6} seconds", i + 1, total_duration.as_secs_f64() / iterations as f64).expect("Failed to create output file");
+        writeln!(output_file, "Duration for Iteration {}: {:.6} seconds", i + 1, duration.as_secs_f64() / iterations as f64).expect("Failed to create output file");
     }
 
     let average_micros = total_duration.as_micros() as f64 / iterations as f64;
@@ -42,6 +46,6 @@ fn main() {
     writeln!(output_file, "Average Execution time: {:.6} microseconds", average_micros).unwrap(); // Write average duration to output file
     writeln!(output_file, "Average Execution time: {:.6} seconds", average_secs).unwrap(); // Write average duration to output file
 
-    matrix_multiplication::write_result("result.txt", &result_array).unwrap();
+    // matrix_multiplication::write_result("result.txt", &result_array).unwrap();
 
 }

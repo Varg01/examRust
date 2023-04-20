@@ -14,9 +14,16 @@ void show(int *arr, int size) {
 /** Main function */
 int main(int argc, char **argv) {
 
+    if (argc != 6) {
+        cout << "Usage: " << argv[0] << " <size> <filename1> <filename2> <iterations> <resultFile>" << std::endl;
+        return 1;
+    }
+
     int size = std::stoi(argv[1]);
     string fileName1 = argv[2];
     string fileName2 = argv[3];
+    int iterations = std::stoi(argv[4]);
+    string outputFileName = argv[5];
 
     int** firstArray = new int*[size];
     for (int i = 0; i < size; i++) {
@@ -33,12 +40,11 @@ int main(int argc, char **argv) {
         resultArray[i] = new long[size];
     }
 
-    int iterations = 10;
     long long totalDuration = 0;
 
     readArr(fileName1, firstArray);
     readArr(fileName2, secondArray);
-    std::ofstream outputFile("timeResult_" + to_string(size));
+    std::ofstream outputFile(outputFileName + to_string(size));
     for (int i = 0; i < iterations; i++) {
 
         auto start = chrono::high_resolution_clock::now();
@@ -53,7 +59,7 @@ int main(int argc, char **argv) {
     outputFile << "Average Execution time: " << totalDuration / (iterations * 1000000) << " seconds" << std::endl;
 
 
-    writeResult(resultArray, size);
+    // writeResult(resultArray, size);
 
     for (int i = 0; i < size; i++) {
         delete[] firstArray[i];

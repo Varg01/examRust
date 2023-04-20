@@ -1,1 +1,1 @@
-/home/vargbroder/kurser/examArbete/examRust/createData/generation_readWrite/target/debug/generation_readWrite: /home/vargbroder/kurser/examArbete/examRust/createData/generation_readWrite/src/main.rs
+/home/varg/exam/examRust/createData/generation_readWrite/target/debug/generation_readWrite: /home/varg/exam/examRust/createData/generation_readWrite/src/main.rs

@@ -8,13 +8,22 @@ use std::time::{Duration, Instant};
 
 // Do this and sort with O3 optimization.
 fn main() {
-    let file_name = std::env::args().nth(1).unwrap_or_default();
+
+    let size = std::env::args()
+        .nth(1)
+        .and_then(|arg| arg.parse::<usize>().ok())
+        .unwrap_or(0);
+    let file_name = std::env::args().nth(2).unwrap_or_default();
+    let iterations = std::env::args()
+    .nth(3)
+    .and_then(|arg| arg.parse::<usize>().ok())
+    .unwrap_or(0);
 
 
-    let result = String::from("timeResult_");
+    let mut output_file_name = std::env::args().nth(4).unwrap_or_default();
+    output_file_name.push_str(&size.to_string());
+    let mut output_file = File::create(&output_file_name).expect("Failed to create output file");
 
-    let mut output_file = File::create(result + &file_name).expect("Failed to create output file"); 
-    let iterations = 10;
     let mut total_duration_read = Duration::default();
     let mut total_duration_write = Duration::default();
     for i in 0..iterations {

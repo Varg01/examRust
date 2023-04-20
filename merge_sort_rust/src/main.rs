@@ -9,8 +9,16 @@ use std::time::{Duration, Instant};
 fn main() {
     let args: Vec<String> = env::args().collect();
 
-    let file = File::open(&args[1]).unwrap();
+    let size = std::env::args()
+        .nth(1)
+        .and_then(|arg| arg.parse::<usize>().ok())
+        .unwrap_or(0);
+    let file = File::open(&args[2]).unwrap();
     let reader = BufReader::new(file);
+    let iterations = std::env::args()
+    .nth(3)
+    .and_then(|arg| arg.parse::<usize>().ok())
+    .unwrap_or(0);
 
     let mut numbers: Vec<i32> = Vec::new();
 
@@ -23,10 +31,10 @@ fn main() {
             .collect::<Vec<i32>>();
     }
     
-    let result = String::from("timeResult_");
+    let mut output_file_name = std::env::args().nth(4).unwrap_or_default();
+    output_file_name.push_str(&size.to_string());
+    let mut output_file = File::create(&output_file_name).expect("Failed to create output file");
 
-    let mut output_file = File::create(result + &args[1]).expect("Failed to create output file"); 
-    let iterations = 10;
     let mut total_duration = Duration::default();
     for i in 0..iterations {
         let mut arr = numbers.clone();
@@ -36,7 +44,7 @@ fn main() {
         let duration = end - start;
         total_duration += duration;
         writeln!(output_file, "Duration for Iteration {}: {:.6} microseconds", i + 1, duration.as_micros() as f64).expect("Failed to create output file");
-        writeln!(output_file, "Duration for Iteration {}: {:.6} seconds", i + 1, total_duration.as_secs_f64() / iterations as f64).expect("Failed to create output file");
+        writeln!(output_file, "Duration for Iteration {}: {:.6} seconds", i + 1, duration.as_secs_f64() / iterations as f64).expect("Failed to create output file");
     }
 
     let average_micros = total_duration.as_micros() as f64 / iterations as f64;

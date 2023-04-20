@@ -10,15 +10,22 @@
 /** Main function */
 int main(int argc, char **argv) {
 
+    if (argc != 5) {
+        cout << "Usage: " << argv[0] << " <size> <filename> <iterations> <resultFile>" << std::endl;
+        return 1;
+    }
+
     int size = std::stoi(argv[1]);
     string fileName = argv[2];
+    int iterations = std::stoi(argv[3]);
+    string outputFileName = argv[4];
+    
 
     string fileData = ""; 
 
-    int iterations = 10;
     long long totaldurationRead = 0;
     long long totalDurationWrite = 0;
-    std::ofstream outputFile("timeResult_" + fileName);
+    std::ofstream outputFile(outputFileName + argv[1]);
     for (int i = 0; i < iterations; i++) {
         auto startRead = chrono::high_resolution_clock::now();
         readArr(fileName, fileData);
