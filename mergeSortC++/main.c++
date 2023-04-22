@@ -1,6 +1,7 @@
 #include "mergeSort.hpp"
 #include <string>
 #include <chrono>
+#include <iomanip>
 
 /**
  * Utility function used to print the array after
@@ -66,10 +67,10 @@ int main(int argc, char **argv) {
         auto duration = chrono::duration_cast<std::chrono::microseconds>(end - start).count();
         totalDuration += duration;
         outputFile << "Duration for Iteration " << i + 1 << ": " << duration << " microseconds" << std::endl;
-        outputFile << "Duration for Iteration " << i + 1 << ": " << duration/1000000 << " seconds" << std::endl;
+        outputFile << "Duration for Iteration " << i + 1 << ": " << duration/1000000.0 << " seconds" << std::endl;
     }
     outputFile << "Average Execution time: " << totalDuration / iterations << " microseconds" << std::endl;
-    outputFile << "Average Execution time: " << totalDuration / (iterations * 1000000) << " seconds" << std::endl;
+    outputFile << "Average Execution time: " << totalDuration / (iterations * 1000000.0) << " seconds" << std::endl;
 
 
 

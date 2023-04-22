@@ -30,12 +30,20 @@ $mergeSortRust "10000000" "sortData/sort10⁷.txt" $iterations "resultFiles/rust
 $mergeSortRust "100000000" "sortData/sort10⁸.txt" $iterations "resultFiles/rustSort/timeResult_"
 
 $readAndWriteCpp "10000" "readWriteData/readWrite10⁴.txt" $iterations "resultFiles/c++ReadWrite/timeResult_"
+rm "result.txt"
 $readAndWriteCpp "1000000" "readWriteData/readWrite10⁶.txt" $iterations "resultFiles/c++ReadWrite/timeResult_"
+rm "result.txt"
 $readAndWriteCpp "100000000" "readWriteData/readWrite10⁸.txt" $iterations "resultFiles/c++ReadWrite/timeResult_"
+rm "result.txt"
 $readAndWriteCpp "1000000000" "readWriteData/readWrite10⁹.txt" $iterations "resultFiles/c++ReadWrite/timeResult_"
+rm "result.txt"
 
 $readAndWriteRust "10000" "readWriteData/readWrite10⁴.txt" $iterations "resultFiles/rustReadWrite/timeResult_"
+rm "result.txt"
 $readAndWriteRust "1000000" "readWriteData/readWrite10⁶.txt" $iterations "resultFiles/rustReadWrite/timeResult_"
+rm "result.txt"
 $readAndWriteRust "100000000" "readWriteData/readWrite10⁸.txt" $iterations "resultFiles/rustReadWrite/timeResult_"
+rm "result.txt"
 $readAndWriteRust "1000000000" "readWriteData/readWrite10⁹.txt" $iterations "resultFiles/rustReadWrite/timeResult_"
+rm "result.txt"
 

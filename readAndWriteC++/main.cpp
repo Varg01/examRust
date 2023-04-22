@@ -1,6 +1,7 @@
 #include "readWrite.hpp"
 #include <string>
 #include <chrono>
+#include <iomanip>
 
 /**
  * Utility function used to print the array after
