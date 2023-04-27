@@ -44,7 +44,7 @@ fn main() {
         let duration = end - start;
         total_duration += duration;
         writeln!(output_file, "Duration for Iteration {}: {:.6} microseconds", i + 1, duration.as_micros() as f64).expect("Failed to create output file");
-        writeln!(output_file, "Duration for Iteration {}: {:.6} seconds", i + 1, duration.as_secs_f64() / iterations as f64).expect("Failed to create output file");
+        writeln!(output_file, "Duration for Iteration {}: {:.6} seconds", i + 1, duration.as_secs_f64() as f64).expect("Failed to create output file");
     }
 
     let average_micros = total_duration.as_micros() as f64 / iterations as f64;

@@ -1,1 +1,1 @@
-/home/varg/exam/examRust/matrix_multiplication_rust/target/release/matrix_multiplication: /home/varg/exam/examRust/matrix_multiplication_rust/src/main.rs /home/varg/exam/examRust/matrix_multiplication_rust/src/matrix_multiplication.rs
+/home/varg/project/examRust/matrix_multiplication_rust/target/release/matrix_multiplication: /home/varg/project/examRust/matrix_multiplication_rust/src/main.rs /home/varg/project/examRust/matrix_multiplication_rust/src/matrix_multiplication.rs

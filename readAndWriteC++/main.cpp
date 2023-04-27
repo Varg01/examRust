@@ -43,15 +43,15 @@ int main(int argc, char **argv) {
         auto endWrite = chrono::high_resolution_clock::now();
         auto durationWrite = chrono::duration_cast<chrono::microseconds>(endWrite - startWrite).count();
         outputFile << "Duration for Iteration write" << i + 1 << ": " << durationWrite << " microseconds" << std::endl;
-        outputFile << "Duration for Iteration write" << i + 1 << ": " << durationWrite/1000000 << " seconds" << std::endl;
+        outputFile << "Duration for Iteration write" << i + 1 << ": " << durationWrite/1000000.0 << " seconds" << std::endl;
         totalDurationWrite += durationWrite;
     }
 
     outputFile << "Average Execution time read: " << totaldurationRead / iterations << " microseconds" << std::endl;
-    outputFile << "Average Execution time read: " << totaldurationRead / (iterations * 1000000) << " seconds" << std::endl;
+    outputFile << "Average Execution time read: " << totaldurationRead / (iterations * 1000000.0) << " seconds" << std::endl;
 
     outputFile << "Average Execution time write: " << totalDurationWrite / iterations << " microseconds" << std::endl;
-    outputFile << "Average Execution time write: " << totalDurationWrite / (iterations * 1000000) << " seconds" << std::endl;
+    outputFile << "Average Execution time write: " << totalDurationWrite / (iterations * 1000000.0) << " seconds" << std::endl;
 
 
 

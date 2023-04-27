@@ -2,56 +2,52 @@
 
 
 
-void readArr(string fileName, int **arr)
+void readArr(string fileName, int *arr)
 {
     std::ifstream file(fileName);
 
-    int count;
-    int lineCount = 0;
+    int count = 0;
 
     if (file.is_open()) {
         std::string line;
         while (getline(file, line)) {
             std::stringstream ss(line);
             int num;
-            count = 0;
             while (ss >> num) {
-                arr[lineCount][count] = num;
+                arr[count] = num;
                 count++;
                 if (ss.peek() == ',') {
                     ss.ignore();
                 }
             }
-            lineCount++;
         }
         file.close();
     } else {
         std::cout << "Unable to open file.\n";
     }
-
-
 }
 
-void matrixMultiplication(int **firstMatrix, int **secondMatrix, long **resultMatrix, int matrixSize)
+void matrixMultiplication(int *firstMatrix, int *secondMatrix, long *resultMatrix, int matrixSize)
 {
     for (int i = 0; i < matrixSize; i++) {
         for (int j = 0; j < matrixSize; j++) {
-            resultMatrix[i][j] = 0;
+            long sum = 0;
             for (int k = 0; k < matrixSize; k++) {
-                resultMatrix[i][j] += firstMatrix[i][k] * secondMatrix[k][j];
+                sum += firstMatrix[i * matrixSize + k] * secondMatrix[k * matrixSize + j];
             }
+            resultMatrix[i * matrixSize + j] = sum;
         }
     }
 }
 
 
-void writeResult(long **resultArray, int size){
+void writeResult(long *resultArray, int size){
     std::ofstream outFile("result.txt");
 
     if (outFile.is_open()) {
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
-                outFile << resultArray[i][j];
+                outFile << resultArray[i * size + j];
                 if (j < size - 1) {
                     outFile << ",";
                 }
@@ -63,3 +59,4 @@ void writeResult(long **resultArray, int size){
         std::cout << "Unable to open file.\n";
     }
 }
+
