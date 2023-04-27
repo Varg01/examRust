@@ -10,10 +10,10 @@
 using namespace std;
 
 
-void matrixMultiplication(int **firstMatrix, int **secondMatrix, long **resultMatrix, int matrixSize);
+void matrixMultiplication(int *firstMatrix, int *secondMatrix, long *resultMatrix, int matrixSize);
 
-void readArr(string fileName, int **arr);
+void readArr(string fileName, int *arr);
 
-void writeResult(long ** resultArr, int size);
+void writeResult(long * resultArr, int size);
 
 #endif // matrixMultiplication
