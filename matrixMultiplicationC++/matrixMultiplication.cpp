@@ -42,7 +42,7 @@ void matrixMultiplication(int *firstMatrix, int *secondMatrix, long *resultMatri
 
 
 void writeResult(long *resultArray, int size){
-    std::ofstream outFile("result.txt");
+    std::ofstream outFile("resultC++.txt");
 
     if (outFile.is_open()) {
         for (int i = 0; i < size; i++) {

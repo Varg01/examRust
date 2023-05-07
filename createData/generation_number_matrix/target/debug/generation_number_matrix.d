@@ -1,1 +1,0 @@
-/home/vargbroder/kurser/examArbete/examRust/createData/generation_number_matrix/target/debug/generation_number_matrix: /home/vargbroder/kurser/examArbete/examRust/createData/generation_number_matrix/src/main.rs
