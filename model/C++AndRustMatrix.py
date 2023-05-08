@@ -39,7 +39,7 @@ plt.scatter(x_pred, y_pred_rust, color='purple', label=f'Rust prediction: {y_pre
 
 plt.plot(x_smooth, y_smooth_cpp, color='blue')
 plt.plot(x_smooth, y_smooth_rust, color='orange')
-
+plt.title('Comparison of C++ and Rust Matrix multiplication Regression Models for Time vs. Size', fontsize=10)
 
 plt.text(1200, 17000, f' C++ fit: y={popt_cpp[0]:.2f}*exp({popt_cpp[1]:.4f}*x)+{popt_cpp[2]:.2f}', ha='center', color='blue')
 plt.text(1200, 15000, f' Rust fit: y={popt_rust[0]:.2f}*exp({popt_rust[1]:.4f}*x)+{popt_rust[2]:.2f}', ha='center', color='orange')

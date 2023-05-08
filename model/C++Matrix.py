@@ -38,6 +38,7 @@ y_smooth = np.concatenate((y_smooth, y_ext))
 plt.scatter(x, y)
 plt.plot(x_smooth, y_smooth, 'r-', label='fit')
 plt.scatter(x_pred, y_pred, color='green', label=f'{y_pred:.2f}', s=25)
+plt.title('C++ Matrix multiplication Regression Model for Time vs. Size')
 
 
 eqn = f'y = {popt[0]:.2f} * exp({popt[1]:.4f} * x) + {popt[2]:.2f}'
