@@ -45,8 +45,8 @@ plt.xlabel('Sizes')
 plt.ylabel('Times')
 
 
-plt.scatter(200000000, 22334.26, color='darkblue', s=25, label='C++ 2*10⁸')
-plt.scatter(200000000, 21815.12, color='darkred', s=25, label='Rust 2*10⁸')
+plt.scatter(200000000, 22334.26, color='darkred', s=25, label='C++ 2*10⁸')
+plt.scatter(200000000, 21815.12, color='darkblue', s=25, label='Rust 2*10⁸')
 plt.plot(df_full_cpp['Sizes'], df_full_cpp['Times'], color='red', linestyle='dashed', alpha=0.5, label='C++ approx line')
 plt.plot(df_full_rust['Sizes'], df_full_rust['Times'], color='blue', linestyle='dashed', alpha=0.5, label='Rust approx line')
 

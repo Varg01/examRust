@@ -44,8 +44,8 @@ plt.scatter(x, y_rust, label='Rust', color='blue')
 plt.scatter(x_pred, y_pred_cpp, color='green', label=f'C++ prediction: {y_pred_cpp:.2f}', s=25)
 plt.scatter(x_pred, y_pred_rust, color='purple', label=f'Rust prediction: {y_pred_rust:.2f}', s=25)
 
-plt.scatter(2000, 18814.77, color='darkblue', s=25, label='C++ 2000')
-plt.scatter(2000, 24203.58, color='darkred', s=25, label='Rust 2000')
+plt.scatter(2000, 18814.77, color='darkred', s=25, label='C++ 2000')
+plt.scatter(2000, 24203.58, color='darkblue', s=25, label='Rust 2000')
 plt.plot(x_full, y_cpp_full, color='red', linestyle='dashed', alpha=0.5, label='C++ approx line')
 plt.plot(x_full, y_rust_full, color='blue', linestyle='dashed', alpha=0.5, label='Rust approx line')
 
